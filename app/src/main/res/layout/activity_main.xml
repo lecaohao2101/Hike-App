@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@drawable/background_add"
-    >
+    android:background="@drawable/background_add">
 
     <TextView
         android:layout_width="match_parent"
@@ -18,15 +16,14 @@
         android:textAlignment="center"
         android:layout_marginTop="10dp"
         android:inputType="text"
-        android:textColor="@color/white"
-        />
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="10dp"
-        >
+        android:layout_marginLeft="10dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,8 +31,8 @@
             android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,11 +40,11 @@
             android:textSize="12sp"
             android:textColor="#FF0000"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="2dp"
-            />
+            android:layout_marginLeft="2dp" />
     </LinearLayout>
+
     <EditText
-        android:id="@+id/nameEditText"
+        android:id="@+id/nameInp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Son Dong"
@@ -56,15 +53,15 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
-        />
+        android:textColorHint="#000000" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,8 +69,8 @@
             android:layout_marginTop="10dp"
             android:textSize="15dp"
             android:textStyle="bold"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,11 +78,10 @@
             android:textSize="12sp"
             android:textColor="#FF0000"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="2dp"
-            />
+            android:layout_marginLeft="2dp" />
     </LinearLayout>
     <EditText
-        android:id="@+id/locationEditText"
+        android:id="@+id/locationInp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Quang Binh"
@@ -95,7 +91,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:inputType="text"
-        />
+        android:textColorHint="#000000" />
 
 
     <LinearLayout
@@ -103,8 +99,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -112,8 +108,8 @@
             android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -121,11 +117,10 @@
             android:textSize="12sp"
             android:textColor="#FF0000"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="2dp"
-            />
+            android:layout_marginLeft="2dp" />
     </LinearLayout>
     <EditText
-        android:id="@+id/dateEditText"
+        android:id="@+id/dateInp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="20/11/2022"
@@ -135,15 +130,15 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp"
         android:focusable="false"
-        />
+        android:textColorHint="#000000" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -151,8 +146,8 @@
             android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -160,31 +155,29 @@
             android:textSize="12sp"
             android:textColor="#FF0000"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="2dp"
-            />
+            android:layout_marginLeft="2dp" />
 
         <RadioGroup
             android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/yesRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Yes"
                 android:layout_marginLeft="50dp"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white" />
+
             <RadioButton
                 android:id="@+id/noRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No"
                 android:layout_marginLeft="100dp"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white" />
         </RadioGroup>
     </LinearLayout>
 
@@ -193,8 +186,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -202,8 +195,8 @@
             android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -211,11 +204,10 @@
             android:textSize="12sp"
             android:textColor="#FF0000"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="2dp"
-            />
+            android:layout_marginLeft="2dp" />
 
         <EditText
-            android:id="@+id/lengthEditText"
+            android:id="@+id/lengthInp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text"
@@ -225,7 +217,7 @@
             android:textAlignment="center"
             android:hint="100"
             android:inputType="numberDecimal"
-            />
+            android:textColorHint="#000000" />
     </LinearLayout>
 
     <LinearLayout
@@ -233,8 +225,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        >
+        android:layout_marginTop="20dp">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -242,8 +234,8 @@
             android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:textColor="@color/white"
-            />
+            android:textColor="@color/white" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -251,39 +243,37 @@
             android:textSize="12sp"
             android:textColor="#FF0000"
             android:layout_marginTop="8dp"
-            android:layout_marginLeft="2dp"
-            />
+            android:layout_marginLeft="2dp" />
 
         <RadioGroup
             android:id="@+id/radioGroup_Level"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/easyRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Easy"
                 android:layout_marginLeft="30dp"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white" />
+
             <RadioButton
                 android:id="@+id/mediumRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Medium"
                 android:layout_marginLeft="20dp"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white" />
+
             <RadioButton
                 android:id="@+id/hardRadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Hard"
                 android:layout_marginLeft="20dp"
-                android:textColor="@color/white"
-                />
+                android:textColor="@color/white" />
         </RadioGroup>
     </LinearLayout>
 
@@ -295,11 +285,10 @@
         android:textStyle="bold"
         android:layout_marginLeft="10dp"
         android:textSize="15dp"
-        android:textColor="@color/white"
-        />
+        android:textColor="@color/white" />
 
     <EditText
-        android:id="@+id/descriptionEditText"
+        android:id="@+id/descriptionInp"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginLeft="10dp"
@@ -307,7 +296,8 @@
         android:layout_marginRight="10dp"
         android:paddingLeft="10dp"
         android:background="@drawable/edit_text"
-        android:hint="Description about the hike..." />
+        android:hint="Description about the hike..."
+        android:textColorHint="#000000" />
 
     <Button
         android:id="@+id/add"
@@ -315,15 +305,16 @@
         android:layout_height="wrap_content"
         android:text="Add"
         android:textSize="20dp"
-        android:layout_marginTop="20dp"
-        />
+        android:layout_marginTop="50dp"
+        android:alpha="1"
+        android:background="@drawable/button_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="96dp"
-        >
+        android:layout_marginTop="70dp">
+
         <Button
             android:id="@+id/add_nav_at_add"
             android:layout_width="134dp"
@@ -331,28 +322,30 @@
             android:text="Add"
             android:textStyle="bold"
             android:textAlignment="center"
-            android:background="@drawable/nav"
             android:textColor="@color/black"
             android:textSize="20dp"
-            />
+            android:alpha="1"
+            android:background="@drawable/button_background" />
+
         <Button
             android:id="@+id/home_nav_at_add"
             android:layout_width="134dp"
             android:layout_height="wrap_content"
             android:text="Home"
             android:textAlignment="center"
-            android:background="@drawable/nav"
             android:textSize="20dp"
-            />
+            android:alpha="1"
+            android:background="@drawable/button_background" />
+
         <Button
             android:id="@+id/search_nav_at_add"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Search"
             android:textAlignment="center"
-            android:background="@drawable/nav"
             android:textSize="20dp"
-            />
+            android:alpha="1"
+            android:background="@drawable/button_background" />
     </LinearLayout>
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package com.example.coursework;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -11,18 +12,24 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Calendar;
+
 public class UpdateActivity extends AppCompatActivity {
+    // Declare UI elements
     private DBHelper dbHelper;
     private int userId;
     private EditText name_Update, location_Update, date_Update, length_Update, description_Update;
     private RadioGroup radioGroup, radioGroupLevel_Update;
-    private Button update, back_at_update;
+    private Button update;
+    private DatePickerDialog datePickerDialog;
+    private Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
 
+        // Initialize UI elements and DBHelper
         dbHelper = new DBHelper(this);
 
         name_Update = findViewById(R.id.name_Update);
@@ -33,18 +40,44 @@ public class UpdateActivity extends AppCompatActivity {
         radioGroup = findViewById(R.id.radioGroup);
         radioGroupLevel_Update = findViewById(R.id.radioGroup_level_Update);
         update = findViewById(R.id.update);
-        back_at_update = findViewById(R.id.back_at_update);
-
-        // Nhận userId từ Intent
         userId = getIntent().getIntExtra("userId", -1);
 
-        // Load dữ liệu người dùng cần chỉnh sửa từ cơ sở dữ liệu và hiển thị lên giao diện
+        // Load existing data of the hiking activity from the database
         loadDataFromDatabase(userId);
 
+        // Set onClickListener for the date_Update EditText to show a DatePickerDialog
+        date_Update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create a Calendar object to get the current date
+                Calendar calendar = Calendar.getInstance();
+
+                // Get the current year, month, and day
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                // Create a DatePickerDialog to allow users to select dates
+                DatePickerDialog datePickerDialog = new DatePickerDialog(UpdateActivity.this,
+                        // Listen for events when the user selects a date
+                        (view, year1, monthOfYear, dayOfMonth) -> {
+                            // Create the selected date string
+                            String selectedDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year1;
+                            // Display the selected date in the date_Update EditText
+                            date_Update.setText(selectedDate);
+                        },
+                        // Set default year, month, and day
+                        year, month, day);
+
+                // Show the DatePickerDialog to the user
+                datePickerDialog.show();
+            }
+        });
+
+        // Set onClickListener for the update Button to update the activity information
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Lấy dữ liệu từ các trường chỉnh sửa
                 String name = name_Update.getText().toString();
                 String location = location_Update.getText().toString();
                 String date = date_Update.getText().toString();
@@ -61,37 +94,31 @@ public class UpdateActivity extends AppCompatActivity {
                     difficultyLevel = "Hard";
                 }
 
-                // Kiểm tra xem đã nhập đủ thông tin chưa
                 if (name.isEmpty() || location.isEmpty() || date.isEmpty() || lengthStr.isEmpty()) {
-                    // Hiển thị thông báo yêu cầu nhập đủ thông tin
                     Toast.makeText(UpdateActivity.this, "Please enter complete information", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Cập nhật dữ liệu người dùng trong cơ sở dữ liệu
+                    // Update the activity data in the database
                     boolean isUpdated = dbHelper.updateData(userId, name, location, date, parkingAvailable, Double.parseDouble(lengthStr), difficultyLevel, description);
                     if (isUpdated) {
+                        // Display a success message and navigate to HomeActivity
                         Toast.makeText(UpdateActivity.this, "Data has been updated successfully", Toast.LENGTH_SHORT).show();
-                        finish(); // Đóng activity sau khi cập nhật thành công
+                        Intent intent = new Intent(UpdateActivity.this, HomeActivity.class);
+                        startActivity(intent);
+                        finish();
                     } else {
+                        // Display a failure message
                         Toast.makeText(UpdateActivity.this, "Failed to update data", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
         });
-
-        back_at_update.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UpdateActivity.this, HomeActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
+    // Load existing data of the hiking activity from the database
     private void loadDataFromDatabase(int userId) {
         Cursor cursor = dbHelper.getDataById(userId);
 
         if (cursor != null && cursor.moveToFirst()) {
-            // Lấy dữ liệu từ Cursor và điền vào các trường chỉnh sửa
             String name = cursor.getString(cursor.getColumnIndexOrThrow("name"));
             String location = cursor.getString(cursor.getColumnIndexOrThrow("location"));
             String date = cursor.getString(cursor.getColumnIndexOrThrow("date"));
@@ -100,6 +127,7 @@ public class UpdateActivity extends AppCompatActivity {
             String difficultyLevel = cursor.getString(cursor.getColumnIndexOrThrow("difficulty_level"));
             String description = cursor.getString(cursor.getColumnIndexOrThrow("description"));
 
+            // Populate UI elements with existing data
             name_Update.setText(name);
             location_Update.setText(location);
             date_Update.setText(date);

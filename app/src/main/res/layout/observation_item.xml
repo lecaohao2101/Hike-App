@@ -11,53 +11,56 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/observation_txt"
+            android:id="@+id/observation_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:text="Bird"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/observationTime_txt"
+            android:id="@+id/observationTime_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="20/1/2002"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textColor="@color/white"/>
 
         <TextView
-            android:id="@+id/comment_txt"
+            android:id="@+id/comment_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="Comments"
-            android:textSize="14sp"
+            android:textSize="14dp"
             android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/edit_observation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit"
-            />
+            android:alpha="1"
+            android:background="@drawable/button_background" />
+
         <Button
             android:id="@+id/delete_observation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delete"
-            />
+            android:alpha="1"
+            android:background="@drawable/button_background"
+            android:textColor="@color/red" />
     </LinearLayout>
 
 </LinearLayout>
